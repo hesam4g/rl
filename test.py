@@ -32,7 +32,7 @@ def find_w(u, u_prim, w, accelerators):
 	return w+1
 
 server = 128
-accelerators = 1
+accelerators = 2
 w = 0
 
 
@@ -52,14 +52,14 @@ best_lat = []
 # 	best_lat.append( avg(la))
 # f=open('data.csv','ab')
 data = []
-f=open('data.csv','ab')
+f=open('data2.csv','ab')
 
 for i in range(5):
 	for rate in range(128*8,128*20,16):
 		w=0
 		print(rate, i)
 		l,u,w = smart(rate, server, accelerators, w)
-		x = np.append(u,w).reshape(1,257)
+		x = np.append(u,w).reshape(1,(accelerators+1)*128+1)
 		np.savetxt(f, x, fmt='%10.5f', delimiter=",")
 
 
