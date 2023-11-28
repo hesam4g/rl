@@ -82,7 +82,7 @@ plt.yticks(range(0, 8001, 2000), labels)
 
 plt.subplots_adjust(left = 0.17, right=0.96, bottom=0.18, top=0.6)
 
-plt.savefig("latency_simulation.pdf")
+# plt.savefig("latency_simulation.pdf")
 
 plt.show()
 

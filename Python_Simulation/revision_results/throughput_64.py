@@ -12,7 +12,7 @@ ITERATION = 10
 
 T = {"server": [], "lsu": [], "prt": [], "wrr":[]}
 L = {"server": [], "lsu": [], "prt": [], "wrr":[]}
-rates = range(800, 2000, 100)
+rates = range(100, 2000, 100)
 
 
 print('baseline:')
@@ -71,8 +71,7 @@ for rate in rates:
 	L["wrr"].append(np.percentile(lat,99))
 	T["wrr"].append(thg)
 
-
-with open('64.pkl', 'wb') as file:
+with open('64-2.pkl', 'wb') as file:
 	pickle.dump(rates, file)
 	pickle.dump(T, file)
 	pickle.dump(L, file)

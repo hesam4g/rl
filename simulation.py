@@ -104,10 +104,13 @@ def wrr(_rate, _servers, _accelerators, prop=6):
 		for i in range(0,len(lats)):
 			if load[i] != 0:
 				# if prop <= 6:
-				index = min(int(load[i]/2)-(_accelerators - abs(prop - real_prop)), len(_lats["wrr"])-1)
+				index = min(int(load[i]/2)-(_accelerators - abs(prop - real_prop)), len(_lats["wrr"])-2)
 				index = max(index, 0)
 				lats[i] = _lats["wrr"][index]*np.random.normal(1,0.1)
-				# thrg[i] += _thrg["wrr"][index]*np.random.normal(1,0.1)
+				try:
+					thrg[i] += _thrg["wrr"][index]*np.random.normal(1,0.1)
+				except:
+					print(i, index, len(_thrg["wrr"]))
 				util[i] = min(1,lats[i]/_lats["wrr"][-2])
 			else:
 				util[i] = util[i-1]* real_prop/(prop)
@@ -118,6 +121,7 @@ def wrr(_rate, _servers, _accelerators, prop=6):
 		ut = list(map(add, util, ut))
 
 	return np.divide(lo,100), np.divide(la,100), np.divide(th,100), np.divide(ut,100)
+
 
 def avg(x):
 	if len(x)!=0:
@@ -131,7 +135,7 @@ def check(u, u_prim, w, accelerators):
 		return 0
 	if w == 0:
 		u = u[0:-1:accelerators+1]
-		if avg(u) >= 0.8:
+		if avg(u) >= 0.5:
 			return 0
 		else:
 			return 1
@@ -153,13 +157,13 @@ def smart(rate, server, accelerators, w):
 	lo, la, t ,u = wrr(rate, server, accelerators, w)
 	flag = check(u, u_prim, w, accelerators)
 	while (not flag):
-		# if weight == 0:
-		# 	w = find_w(u, u_prim, w, accelerators)
-		# elif np.random.rand() > 0.8:
-		# 	w = find_w(u, u_prim, w, accelerators)
-		# else:
-		# 	print("previous")
-		# 	w = weight
+		if weight == 0:
+			w = find_w(u, u_prim, w, accelerators)
+		elif np.random.rand() > 0.8:
+			w = find_w(u, u_prim, w, accelerators)
+		else:
+			print("previous")
+			w = weight
 		w = find_w(u, u_prim, w, accelerators)
 		lo, la, t ,u = wrr(rate, server, accelerators, w)
 		flag = check(u, u_prim, w, accelerators)

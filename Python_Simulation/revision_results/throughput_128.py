@@ -12,7 +12,7 @@ ITERATION = 100
 
 T = {"server": [], "lsu": [], "prt": [], "wrr":[]}
 L = {"server": [], "lsu": [], "prt": [], "wrr":[]}
-rates = range(1600, 3601, 100)
+rates = range(100, 3601, 100)
 
 
 print('baseline:')

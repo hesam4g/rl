@@ -75,8 +75,8 @@ plt.xticks(range(1000,7001,1000), labels)
 
 plt.subplots_adjust(left = 0.17, right=0.96, bottom=0.18, top=0.65)
 
-plt.savefig("throughput_simulation.pdf")
-
+# plt.savefig("throughput_simulation.pdf")
+print(rate_128[4:-1:3])
 plt.show()
 
 
