@@ -81,7 +81,7 @@ for i in range(10000):
 		try:
 			# print("here")
 			para = 0.1*(r + 0.9*q_table[index_2][a]- q_table[index_2][a])
-			q_table[index][a] = q_table[index][a] + 0.1*(r + 0.7*q_table[index_2][a]- q_table[index_2][a])
+			q_table[index][a] = q_table[index][a] + para
 			if para>0:
 				print(para)
 		except:
@@ -98,7 +98,7 @@ for i in range(10000):
 for i in range(40):
 	print(i*5, q_table[i])
 
-with open('dp3.pkl', 'wb') as file:
+with open('dp_19.pkl', 'wb') as file:
 	pickle.dump(q_table, file)
 
 
