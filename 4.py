@@ -5,7 +5,7 @@ import numpy as np
 
 
 
-with open('p4wise_64_0.6.pkl', 'rb') as file:
+with open('./pkl/p4wise_64_0.6.pkl', 'rb') as file:
 	rate_128 = pickle.load(file)
 	thrg_128 = pickle.load(file)
 	lats_128 = pickle.load(file)
@@ -38,7 +38,7 @@ ax[0].set_yscale('log')
 ax[1].plot(rate_128[::], thrg_128["prt"][::], marker='o',label= "64-PRT", linestyle=":", color = "green", mfc="none")
 ax[1].plot(rate_128[::], thrg_128["wrr"][::], marker='^', label= "64-WRR", linestyle=":", color = "red", mfc="none")
 ax[1].plot(rate_128[::], thrg_128["p4wise"][::], 		marker='s' ,label= "64-P4Wise ($th = 0.6$)", linestyle="--", color = "blue", mfc="none")
-# ax[1].set_yscale('log')
+ax[1].set_yscale('log')
 
 
 
@@ -69,4 +69,4 @@ plt.subplots_adjust(left = 0.17, right=0.96, bottom=0.12, top=0.9, wspace=1, hsp
 
 plt.savefig("p4wise_64.pdf")
 
-plt.show()
+# plt.show()

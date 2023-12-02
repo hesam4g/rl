@@ -5,17 +5,17 @@ import numpy as np
 
 
 
-with open('p4wise_128_0.6.pkl', 'rb') as file:
+with open('./pkl/p4wise_128_0.6.pkl', 'rb') as file:
 	rate_128 = pickle.load(file)
 	thrg_128 = pickle.load(file)
 	lats_128 = pickle.load(file)
 
-with open('p4wise_128_0.7.pkl', 'rb') as file:
+with open('./pkl/p4wise_128_0.7.pkl', 'rb') as file:
 	rate_128_07 = pickle.load(file)
 	thrg_128_07 = pickle.load(file)
 	lats_128_07 = pickle.load(file)
 
-with open('p4wise_128_0.5.pkl', 'rb') as file:
+with open('./pkl/p4wise_128_0.5.pkl', 'rb') as file:
 	rate_128_05 = pickle.load(file)
 	thrg_128_05 = pickle.load(file)
 	lats_128_05 = pickle.load(file)

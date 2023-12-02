@@ -5,17 +5,17 @@ import numpy as np
 
 
 
-with open('p4wise_128_0.6.pkl', 'rb') as file:
+with open('./pkl/p4wise_128_0.6.pkl', 'rb') as file:
 	rate_128 = pickle.load(file)
 	thrg_128 = pickle.load(file)
 	lats_128 = pickle.load(file)
 
-with open('p4wise_128_0.7.pkl', 'rb') as file:
+with open('./pkl/p4wise_128_0.7.pkl', 'rb') as file:
 	rate_128_07 = pickle.load(file)
 	thrg_128_07 = pickle.load(file)
 	lats_128_07 = pickle.load(file)
 
-with open('p4wise_128_0.5.pkl', 'rb') as file:
+with open('./pkl/p4wise_128_0.5.pkl', 'rb') as file:
 	rate_128_05 = pickle.load(file)
 	thrg_128_05 = pickle.load(file)
 	lats_128_05 = pickle.load(file)
@@ -55,6 +55,6 @@ ax.set_xlabel("Rate (rps)", font)
 ax.legend(loc="upper left")
 plt.subplots_adjust(left = 0.14, right=0.96, bottom=0.2, top=0.95, wspace=1, hspace=0.4)
 
-plt.savefig("lat_128_different_th.pdf")
+# plt.savefig("lat_128_different_th.pdf")
 
-# plt.show()
+plt.show()

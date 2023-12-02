@@ -3,21 +3,21 @@ import matplotlib.pyplot as plt
 import pickle
 
 
-with open('64.pkl', 'rb') as file:
+with open('./pkl/64.pkl', 'rb') as file:
 	rate_64 = pickle.load(file)
 	thrg_64 = pickle.load(file)
 	lats_64 = pickle.load(file)
 
 
 
-with open('128.pkl', 'rb') as file:
+with open('./pkl/128.pkl', 'rb') as file:
 	rate_128 = pickle.load(file)
 	thrg_128 = pickle.load(file)
 	lats_128 = pickle.load(file)
 
 
 
-with open('256.pkl', 'rb') as file:
+with open('./pkl/256.pkl', 'rb') as file:
 	rate_256 = pickle.load(file)
 	thrg_256 = pickle.load(file)
 	lats_256 = pickle.load(file)

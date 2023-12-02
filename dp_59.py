@@ -49,7 +49,7 @@ def policy(state, q_table):
 
 q_table = [[0,0,0] for i in range(40)]
 
-server = 100
+server = 128
 accelerators = 2
 
 weight = 7

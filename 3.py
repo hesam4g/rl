@@ -5,7 +5,7 @@ import numpy as np
 
 
 
-with open('p4wise_256_0.6.pkl', 'rb') as file:
+with open('./pkl/p4wise_256_0.6.pkl', 'rb') as file:
 	rate_128 = pickle.load(file)
 	thrg_128 = pickle.load(file)
 	lats_128 = pickle.load(file)
@@ -72,4 +72,4 @@ plt.subplots_adjust(left = 0.17, right=0.96, bottom=0.12, top=0.9, wspace=1, hsp
 
 plt.savefig("p4wise_256.pdf")
 
-plt.show()
+# plt.show()
