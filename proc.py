@@ -35,7 +35,7 @@ def calc_accuracy(rw):
 def process(fname):
 	learningCurve = np.array([])
 	rate_w = {"rate": [], "w": []}
-	file = open(fname, "r")
+	file = open("log/"+fname, "r")
 	for line in file:
 		data = line.strip().split()
 		if len(data) == 1 and float(data[0]):
@@ -57,17 +57,44 @@ def process(fname):
 # 					"dp_35.log", "dp_37.log", "dp_39.log",
 # 					"dp_55.log", "dp_57.log", "dp_59.log"]
 
-list_of_files = [	"dp_17.log", "dp_19.log",
-					"dp_37.log", "dp_39.log",
-					"dp_57.log", "dp_59.log"]
+plt.figure(figsize=(5,2.5))
+plt.rcParams.update({
+    'font.family': 'Times New Roman',
+})
+
+font = {'family' : 'Times New Roman',
+	'size' : 14,
+}
+
+list_of_files = ["dp_39.log", "dp_55.log", "dp_57.log", "dp_59.log"]
+labels = ["$\\alpha$=0.3, $\\gamma$=0.9", "$\\alpha$=0.5, $\\gamma$=0.5", "$\\alpha$=0.5, $\\gamma$=0.7", "$\\alpha$=0.5, $\\gamma$=0.9"]
+lines = ["solid", "dotted", "dashed", "dashdot"]
+marker = ["|", "*", "x", "."]
+colors = ["tab:blue", "tab:red", "tab:green", "tab:orange"]
 for file in list_of_files:
 	lc, rw = process(file)
 	a = calc_accuracy(rw)
-	print(file, len(a), a[:80])
-
-	plt.plot(range(80), a[:80], label = file)
+	print(file, len(a), a[:91])
+	index = list_of_files.index(file)
+	plt.plot(range(91), a[:91],
+		label = labels[index],
+		linestyle = lines[index],
+		marker = marker[index],
+		color = colors[index]
+		)
 	print("*************************")
 
+plt.xticks(range(0,91,30), range(0,901,300), fontsize=12)
+plt.yticks(range(0,101,25), fontsize=12)
 
-plt.legend()
+plt.xlim(1,90)
+plt.ylim(0,100)
+plt.xlabel("Iteration", font)
+plt.ylabel("Accuracy (%)", font)
+
+plt.legend(ncol=2, fontsize=11, bbox_to_anchor=(0.05, 0.41, 0.8, 1))
+plt.subplots_adjust(left = 0.15, right=0.96, bottom=0.17, top=0.77)
 plt.show()
+
+
+

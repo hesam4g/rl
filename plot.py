@@ -53,7 +53,7 @@ for i in range(len(accuracy)):
 		accuracy[i] = 100 - accuracy[i]
 print(accuracy)
 
-ax1.bar(range(len(results_128["rate"])), results_128["6:1"], width= 0.5,label= "Weight 6:1", linestyle="--", color = "skyblue")  # Plot the chart
+ax1.bar(range(len(results_128["rate"])), results_128["6:1"], width= 0.5,label= "Weights 6:1", linestyle="--", color = "skyblue")  # Plot the chart
 ax1.bar(range(len(results_128["rate"])), r_6_0, bottom=results_128["6:1"], width= 0.5, label= "Weight 6:0", linestyle="--", color = "salmon")  # Plot the chart
 ax1.legend(ncol=2, fontsize=8, bbox_to_anchor=(0.05, 0.3, 0.65,1))
 
@@ -103,5 +103,5 @@ plt.xticks(range(0, len(results_256["rate"]), 4), results_256["rate"][::4])
 
 plt.subplots_adjust(left=0.15, right=0.85, bottom=0.25, top=0.83)
 
-plt.savefig("rl_256.pdf")
-# plt.show() 
+# plt.savefig("rl_256.pdf")
+plt.show() 
